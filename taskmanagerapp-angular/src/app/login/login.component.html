@@ -1,0 +1,27 @@
+<div class="container" >
+  
+    <div class="mx-auto p-2" style="width: 50%;">
+      <h2  style="text-align: center;"><span class="badge rounded-pill bg-primary">Task Manager Application</span></h2>
+      <hr>
+        <!-- <div class="mt-5" style="width: 50%;"> -->
+         <form (ngSubmit)="onSubmit(ref)" #ref="ngForm">
+            <div class="user-data" ngModelGroup="userdata" #userdata="ngModelGroup">
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" ngModel #email="ngModel">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label" >Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password"  ngModel #password="ngModel" >
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button class="btn btn-success mx-3" type="button" [routerLink]="['/signup']">Sign up</button>
+            </div>
+          </form>
+          
+    </div>
+    
+</div>
+

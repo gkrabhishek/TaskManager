@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between mt-3 mb-3" >
+  <h1>All Employees</h1>
+  <div>
+    <button  class="btn btn-primary mx-5" (click)="onLogout()"><i class="bi bi-person"> Logout</i></button>
+  </div>
+</div>
+
+<hr>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Empolyee ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Role</th>
+        <th scope="col">View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees " >
+        <td>{{employee.userId}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.contactNumber}}</td>
+        <td>{{employee.role}}</td>
+        <td><a (click)="editTask(employee)"><i class="bi bi-view-list"></i> </a ></td>
+      </tr>
+    </tbody>
+  </table>

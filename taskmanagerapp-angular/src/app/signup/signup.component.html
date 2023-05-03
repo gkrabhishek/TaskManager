@@ -1,0 +1,42 @@
+<div class="container">
+    <h1 style="text-align: center;">Sign Up</h1>
+    <hr>
+    
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)" style="width: 50%;" ngNativeValidate>
+        <div class="alert alert-success" *ngIf="success" role="alert">
+            {{message['message']}}
+          </div>
+          <div class="alert alert-danger" *ngIf="error" role="alert">
+            {{message['message']}}
+          </div>
+        <div ngModelGroup="newUser" #user="ngModelGroup">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required ngModel name="name" aria-required="true">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required ngModel name="email"  aria-required="true">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required ngModel name="contactNumber" aria-required="true">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password" required ngModel name="password" aria-required="true">
+        </div>
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <select class="form-control" id="role" required ngModel name="role" aria-required="true">
+                <option value="">Select your role</option>
+                <option value="manager">Manager</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success ml-3 mt-3 mb-3 mr-3">Submit</button>
+        <button type="button" class="btn btn-danger mx-3" (click)="onCancel()">Cancel</button>
+    </div>
+    </form>
+    
+</div>

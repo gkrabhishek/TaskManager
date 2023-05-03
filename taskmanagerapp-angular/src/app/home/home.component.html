@@ -1,0 +1,56 @@
+<!-- 
+<div style="text-align: center;display: inline-block;">
+  <h1 >Welcome {{user}}</h1>
+
+  <h1><i class="bi bi-person" ></i></h1>
+
+</div> -->
+<div class="d-flex justify-content-between mt-3 mb-3" >
+  <h1 >Welcome {{user}}</h1>
+  <div>
+    <button  class="btn btn-primary mx-5" (click)="onLogout()"><i class="bi bi-person"> Logout</i></button>
+  </div>
+  
+</div>
+
+
+<h2>All Tasks</h2>
+<hr>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">Progress</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of lists " >
+        <th scope="row">1</th>
+        <td><a href="" [routerLink]="['/employee','task',list.id,'update']">{{list.name}}</a></td>
+        <td>{{list.status}}</td>
+        <td>{{list.priority}}</td>
+        <td>{{list.startDate}}</td>
+        <td>{{list.endDate}}</td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70"
+            aria-valuemin="0" aria-valuemax="100" [style.width.%]="list.progress"
+            [ngStyle]="{'background-color': list.progress > 80 ? 'blue' : list.progress > 50 ? 'yellow' : 'red'}"
+            style="color: black;">
+            {{list.progress}}
+            </div>
+          </div>
+          </td>
+        <td ><a  (click)="myFunc(list)"><i class="bi bi-pencil-fill"></i> </a ></td>
+        <td (click)="onDelete(list.id)"><i class="bi bi-trash-fill"></i></td>
+      </tr>
+     
+    </tbody>
+  </table>
